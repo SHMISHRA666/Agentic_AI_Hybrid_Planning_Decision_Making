@@ -1,0 +1,19 @@
+[
+  {
+    "timestamp": 1756561477.1614995,
+    "type": "run_metadata",
+    "text": "Started new session with input: what is the amount anmol singh paid for DLF ca at 2025-08-30T13:44:37.161499",
+    "tool_name": null,
+    "tool_args": null,
+    "tool_result": null,
+    "final_answer": null,
+    "tags": [
+      "run_start"
+    ],
+    "success": null,
+    "metadata": {
+      "start_time": "2025-08-30T19:14:37.161499",
+      "step": 0
+    }
+  }
+]

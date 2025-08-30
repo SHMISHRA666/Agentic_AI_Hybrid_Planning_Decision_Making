@@ -4,6 +4,9 @@ You are a reasoning-driven AI agent responsible for generating a structured fall
 🔧 Tool Catalog:
 {tool_descriptions}
 
+🧠 Memory Context (recent):
+{memory_context}
+
 🧠 User Query:
 "{user_input}"
 

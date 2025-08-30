@@ -1,0 +1,19 @@
+[
+  {
+    "timestamp": 1756556344.6226149,
+    "type": "run_metadata",
+    "text": "Started new session with input: shut up and find the exact price of DLF camelia apartment that anmil singh paid at 2025-08-30T12:19:04.622614",
+    "tool_name": null,
+    "tool_args": null,
+    "tool_result": null,
+    "final_answer": null,
+    "tags": [
+      "run_start"
+    ],
+    "success": null,
+    "metadata": {
+      "start_time": "2025-08-30T17:49:04.622614",
+      "step": 0
+    }
+  }
+]

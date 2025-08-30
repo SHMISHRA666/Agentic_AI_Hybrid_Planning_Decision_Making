@@ -3,6 +3,7 @@ from modules.perception import PerceptionResult
 from modules.memory import MemoryItem
 from modules.model_manager import ModelManager
 from modules.tools import load_prompt
+from history_index.retriever import HistoryRetriever
 import re
 
 # Optional logging fallback
@@ -31,13 +32,30 @@ async def generate_plan(
 
     """Generates the full solve() function plan for the agent."""
 
-    memory_texts = "\n".join(f"- {m.text}" for m in memory_items) or "None"
+    # Build a concise same-session memory context (most recent first)
+    recent = list(reversed(memory_items))[:8]
+    memory_texts = "\n".join(f"- {m.text}" for m in recent) or "None"
 
     prompt_template = load_prompt(prompt_path)
 
+    # Retrieve few-shot context from historical conversations
+    try:
+        retriever = HistoryRetriever()
+        shots = retriever.retrieve(user_input, top_k=2)
+        if shots:
+            fewshot = "\n\n".join(
+                [f"Q: {s.get('query','')}\nA: {s.get('answer','')}" for s in shots]
+            )
+            user_with_context = f"{fewshot}\n\nCurrent Task: {user_input}"
+        else:
+            user_with_context = user_input
+    except Exception:
+        user_with_context = user_input
+
     prompt = prompt_template.format(
         tool_descriptions=tool_descriptions,
-        user_input=user_input
+        user_input=user_with_context,
+        memory_context=memory_texts,
     )
 
 

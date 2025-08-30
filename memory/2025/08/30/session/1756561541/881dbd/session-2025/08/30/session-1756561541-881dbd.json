@@ -1,0 +1,19 @@
+[
+  {
+    "timestamp": 1756561541.097835,
+    "type": "run_metadata",
+    "text": "Started new session with input: what is the amount anmol singh paid for DLF camelia apartments? at 2025-08-30T13:45:41.097835",
+    "tool_name": null,
+    "tool_args": null,
+    "tool_result": null,
+    "final_answer": null,
+    "tags": [
+      "run_start"
+    ],
+    "success": null,
+    "metadata": {
+      "start_time": "2025-08-30T19:15:41.097835",
+      "step": 0
+    }
+  }
+]

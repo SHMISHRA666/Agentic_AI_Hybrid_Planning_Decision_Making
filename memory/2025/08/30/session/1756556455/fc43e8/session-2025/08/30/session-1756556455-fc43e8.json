@@ -1,0 +1,19 @@
+[
+  {
+    "timestamp": 1756556455.8115993,
+    "type": "run_metadata",
+    "text": "Started new session with input: How much was the DLF apartment payment via Capbridge? at 2025-08-30T12:20:55.811599",
+    "tool_name": null,
+    "tool_args": null,
+    "tool_result": null,
+    "final_answer": null,
+    "tags": [
+      "run_start"
+    ],
+    "success": null,
+    "metadata": {
+      "start_time": "2025-08-30T17:50:55.811599",
+      "step": 0
+    }
+  }
+]

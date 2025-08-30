@@ -5,7 +5,7 @@ You are a reasoning-driven AI agent. The user input below contains prior tool ou
 "{user_input}"
 
 🎯 Goal:
-Generate a minimal async Python function solve() that returns a concise FINAL_ANSWER using only the provided content. Do NOT call any tools. If the provided content contains the answer (e.g., a rupee amount like Rs 42.94 crore), return it directly.
+Generate a minimal async Python function solve() that returns a concise FINAL_ANSWER using only the provided content. Do NOT call any tools. If the provided content contains the answer (e.g., a rupee amount), return it directly.
 
 📏 STRICT RULES:
 - You must define:
@@ -15,13 +15,22 @@ Generate a minimal async Python function solve() that returns a concise FINAL_AN
 - If the content is insufficient, return 'FURTHER_PROCESSING_REQUIRED: ' with a short note on the missing info.
 - Be specific and avoid extraneous details. If amounts or facts are present, state them clearly.
 
-Example:
 ```python
+import re
 async def solve():
-    return "FINAL_ANSWER: Rs 42.94 crore"
+    text = """{user_input}"""
+    m = re.search(r"Rs\s*([0-9]+(?:\.[0-9]+)?)\s*(crore|lakh|million|billion)?", text, flags=re.IGNORECASE)
+    if m:
+        amt = m.group(1)
+        unit = (m.group(2) or '').strip()
+        unit = unit.lower()
+        if unit:
+            return f"FINAL_ANSWER: Rs {{amt}} {{unit}}"
+        return f"FINAL_ANSWER: Rs {{amt}}"
+    return "FURTHER_PROCESSING_REQUIRED: No explicit amount found in provided content."
 ```
 
-Only output valid Python code for the solve() function, nothing else.
+Only output valid Python code for the solve() function.
 """
 
 

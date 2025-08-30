@@ -1,0 +1,107 @@
+[
+  {
+    "timestamp": 1756556648.0409148,
+    "type": "run_metadata",
+    "text": "Started new session with input: How much was the DLF apartment payment via Capbridge? at 2025-08-30T12:24:08.040914",
+    "tool_name": null,
+    "tool_args": null,
+    "tool_result": null,
+    "final_answer": null,
+    "tags": [
+      "run_start"
+    ],
+    "success": null,
+    "metadata": {
+      "start_time": "2025-08-30T17:54:08.040914",
+      "step": 0
+    }
+  },
+  {
+    "timestamp": 1756556667.9110136,
+    "type": "tool_output",
+    "text": "Output of solve_sandbox: {'result': 'FINAL_ANSWER: Rs 42.94 Crore was transferred from Capbridge to DLF Limited as payment towards the purchase of an apartment.'}",
+    "tool_name": "solve_sandbox",
+    "tool_args": {
+      "plan": "async def solve():\n    return \"FINAL_ANSWER: Rs 42.94 Crore was transferred from Capbridge to DLF Limited as payment towards the purchase of an apartment.\""
+    },
+    "tool_result": {
+      "result": "FINAL_ANSWER: Rs 42.94 Crore was transferred from Capbridge to DLF Limited as payment towards the purchase of an apartment."
+    },
+    "final_answer": null,
+    "tags": [
+      "sandbox"
+    ],
+    "success": true,
+    "metadata": {}
+  },
+  {
+    "timestamp": 1756556685.124633,
+    "type": "run_metadata",
+    "text": "Started new session with input: Summarize this page: https://theschoolof.ai/ at 2025-08-30T12:24:45.124633",
+    "tool_name": null,
+    "tool_args": null,
+    "tool_result": null,
+    "final_answer": null,
+    "tags": [
+      "run_start"
+    ],
+    "success": null,
+    "metadata": {
+      "start_time": "2025-08-30T17:54:45.124633",
+      "step": 0
+    }
+  },
+  {
+    "timestamp": 1756556707.7253966,
+    "type": "tool_output",
+    "text": "Output of solve_sandbox: {'result': 'FINAL_ANSWER: The School of AI (TSAI) offers courses like ERA, EAG, and EPAi, having trained over 7000 students. EAG focuses on building autonomous, browser-based AI agents and advanced multi-model Agentic Frameworks. Registrations are open until September 4th, with the first class on September 6th.'}",
+    "tool_name": "solve_sandbox",
+    "tool_args": {
+      "plan": "async def solve():\n    content = \"\"\"\nA disciplined and structured approach to learning and implementing the fundamentals of AIML.\n\nthrough bleeding edge concepts, and an amazing peer group to learn with.\n\nThrough ERA, EAG and EPAi, TSAI has trained more than 7000 students! In ERA we learn how to \"actually\" train LLMs from scratch. EAG focuses on Agents, and EPAi is a comprehensive course focusing on Python and programming for AI!\n\nThis comprehensive 20-session course equips students to build advanced Agentic AI systems, capable of autonomous decision-making, task orchestration, and seamless interaction within complex web environments. Unlike traditional AI programs, this curriculum focuses on designing browser-based agents that leverage the latest advancements in LLMs, retrieval-augmented systems, and multi-agent collaboration, preparing students to lead the development of next-generation AI solutions.\n\nThis course **does not teach** how to use langChain, langGraph, crew.ai or n8n! This course is about making such, and more advanced multi-model Agentic Frameworks and Agents on top of them.\n\nThe EAG course offers a revolutionary approach to learning AI, enabling students to design agents that mirror human-like intelligence in interacting with the web, bridging the gap between theory and application.\n\nRegistrations are open now and will close on 4th September. 1st Class is scheduled to be on 6th September.\n\nEAG V2\n\n| Lecture Title |\n|---|\n\n| Session 1: Transformers & LLM Foundations \u2013 Understand how transformer architecture and large language models work at their core. |\n| Session 2: Modern LLM Internals + SFT Basics \u2013 Explore pretraining internals, scaling rules, and the fundamentals of supervised fine-tuning. |\n| Session 3: What Makes an Agent? Reactive vs. Proactive \u2013 Learn the traits and trade-offs between reactive and goal-driven AI agents. |\n| Session 4: Tool Protocols 101 (HTTP, JSON-RPC, schema validation) \u2013 Master communication protocols and schema-driven tool integration. |\n| Session 5: Model Context Protocol & Interop Standards \u2013 Discover MCP and other standards enabling cross-platform agent interoperability. |\n| Session 6: Planning & Reasoning (CoT, Structured, Self-Consistency) \u2013 Apply structured reasoning techniques for accurate, multi-step problem-solving. |\n| Session 7: Agent Architecture \u2013 Cognitive Layers \u2013 Design agents with perception, memory, and decision-making layers for robust performance. |\n| Session 8: RAG & Memory Architectures \u2013 Build agents with retrieval-augmented generation and efficient memory management. |\n| Session 9: Tool Use: Secure API & Command Execution \u2013 Enable agents to safely execute APIs and commands within controlled environments. |\n| Session 10:Hybrid Planning (AI + Heuristics) \u2013 Combine LLM reasoning with traditional heuristics for optimal decision-making. |\n| Session 11:Multi-Agent Systems & Meta-Agents \u2013 Coordinate multiple agents to work collaboratively on complex goals. |\n| Session 12:Environment-Aware Agents (Web + Desktop) \u2013 Equip agents to perceive and act within both browser and desktop environments. |\n| Session 13:Perception: Multimodal Input Handling \u2013 Integrate text, image, audio, and other modalities into unified agent perception. |\n| Session 14:Sandboxed Execution & Safety \u2013 Run agent actions in secure sandboxes to ensure reliability and prevent harm. |\n| Session 15:Scaling Agents Across Machines \u2013 Architect systems for distributed, multi-machine agent deployment. |\n| Session 16:Intelligent Goal Interpretation \u2013 Train agents to interpret, refine, and align with human goals accurately. |\n| Session 17:Managing Uncertainty & Error Recovery \u2013 Handle ambiguity and implement robust error-correction strategies. |\n| Session 18:Agent Debugging & Introspection \u2013 Monitor, debug, and refine agents through introspection and trace analysis. |\n| Session 19:Evaluation & Continuous Improvement \u2013 Measure agent performance and iterate for ongoing enhancement. |\n| Session 20:Capstone: Autonomous Environment-Aware Agent \u2013 Design, build, and demo a fully autonomous, environment-aware AI agent. |\n\nEAG V1\n\n| Lecture Title |\n|---|\n\n| Session 1: Foundations of the Transformer Architecture - A deep dive into the self-attention mechanism and why Transformers revolutionized NLP. |\n| Session 2: Modern Language Model Internals - Examines pre-training objectives, parameter scaling, and advanced fine-tuning for LLMs. |\n| Session 3: Introduction to Agentic AI - Overviews AI agents that plan, reason, and take actions beyond simple text generation. |\n| Session 4: Planning and Reasoning with Language Models - Covers chain-of-thought prompting, multi-step reasoning, and structured thinking in LLMs. |\n| Session 5: Agent Architecture \n\"\"\"\n    return \"FINAL_ANSWER: The School of AI (TSAI) offers courses like ERA, EAG, and EPAi, having trained over 7000 students. EAG focuses on building autonomous, browser-based AI agents and advanced multi-model Agentic Frameworks. Registrations are open until September 4th, with the first class on September 6th.\""
+    },
+    "tool_result": {
+      "result": "FINAL_ANSWER: The School of AI (TSAI) offers courses like ERA, EAG, and EPAi, having trained over 7000 students. EAG focuses on building autonomous, browser-based AI agents and advanced multi-model Agentic Frameworks. Registrations are open until September 4th, with the first class on September 6th."
+    },
+    "final_answer": null,
+    "tags": [
+      "sandbox"
+    ],
+    "success": true,
+    "metadata": {}
+  },
+  {
+    "timestamp": 1756556734.0517695,
+    "type": "run_metadata",
+    "text": "Started new session with input: shut up and tell me you fool What is the relationship between Gensol and Go-Auto at 2025-08-30T12:25:34.051769",
+    "tool_name": null,
+    "tool_args": null,
+    "tool_result": null,
+    "final_answer": null,
+    "tags": [
+      "run_start"
+    ],
+    "success": null,
+    "metadata": {
+      "start_time": "2025-08-30T17:55:34.051769",
+      "step": 0
+    }
+  },
+  {
+    "timestamp": 1756556746.093729,
+    "type": "tool_output",
+    "text": "Output of solve_sandbox: {'result': 'FINAL_ANSWER: Capbridge routed Rs 10 crore back to Go-Auto using funds from Gensol EV Lease and BluSmart.'}",
+    "tool_name": "solve_sandbox",
+    "tool_args": {
+      "plan": "async def solve():\n    content = \"\"\"{\"result\": \"Found 5 search results:\\\\n\\\\n1. The Gensol-BluSmart Crisis: An Analysis of Intertwined Fates, Financial ...\\\\n   URL: https://treelife.in/finance/the-gensol-blusmart-crisis/\\\\n   Summary: This report provides an in-depth analysis of the complexrelationshipandsubsequent crisis involvingGensolEngineering Ltd. (GEL), a publicly listed renewable energy and EPC, and BluSmart Mobility Pvt Ltd., a prominent electric vehicle ride-hailing service.\\\\n\\\\n2. The Gensol Engineering Fraud: A Tale of Deception and Financial ...\\\\n   URL: https://sharpely.in/blog/the-gensol-engineering-fraud:-a-tale-of-deception-and-financial-misconduct\\\\n   Summary: Round-Tripping and Related-Party Transactions: SEBI identified a web of transactions involving entities likeGo-Auto, Capbridge Ventures, and Param Care Pvt. Ltd., where funds were cycled betweenGensolandpromoter-linked firms to create the illusion of legitimate business dealings.\\\\n\\\\n3. Gensol EV Fund Scam: Where did EV funds go? Rs 43cr flat, Rs 26L golf ...\\\\n   URL: https://timesofindia.indiatimes.com/business/india-business/where-did-ev-funds-go-rs-43cr-flat-rs-26l-golf-sets-/articleshow/120363139.cms\\\\n   Summary: In one of the several instances of fund diversions,Gensoltransferred Rs 775 crore toGo-Auto, anautodealership through which it bought electric vehicles for BluSmart, a ride hailing company.\\\\n\\\\n4. Golf Kits, Ghost Companies & Green Loans: SEBI Blows the Lid Off Gensol ...\\\\n   URL: https://www.timesnownews.com/business-economy/companies/times-now-exclusive-gensolblusmart-ev-loan-scam-unveiled-sebi-exposes-rs-262-crore-financial-fraud-article-151440254\\\\n   Summary: The Jaggi brothers\\' earlier directorship and shareholding link the entities in what appears to be a planned conduit system. In a related discovery, Capbridge Ventures LLP, where the Jaggi brothers served as directors, received Rs 25 lakh, while Capbridge routed Rs 10 crore back toGo-Autousing funds fromGensolEV Lease and BluSmart.\\\\n\\\\n5. Gensol Engineering Fraud: \\\\u20b9978 Crore Electric Vehicle Scam!\\\\n   URL: https://stoxntax.com/2025/04/17/gensol-engineering-fraud-%E2%82%B9978-crore-electric-vehicle-scam/\\\\n   Summary: Go-AutoPvt Ltd, the EV supplier, confirmed sales worth \\\\u20b9567.73 crore, whileGensolreceived \\\\u20b9663.89 crore. The gap of over \\\\u20b996 crore raises serious red flags.\\\\n\"}\"\"\"\n\n    if \"Gensol transferred Rs 775 crore toGo-Auto\" in content:\n        return \"FINAL_ANSWER: Gensol transferred Rs 775 crore to Go-Auto, an auto dealership.\"\n    elif \"Capbridge routed Rs 10 crore back toGo-Autousing funds fromGensolEV Lease and BluSmart\" in content:\n        return \"FINAL_ANSWER: Capbridge routed Rs 10 crore back to Go-Auto using funds from Gensol EV Lease and BluSmart.\"\n    elif \"Go-AutoPvt Ltd, the EV supplier, confirmed sales worth \\\\u20b9567.73 crore\" in content:\n        return \"FINAL_ANSWER: Go-Auto Pvt Ltd confirmed sales worth \u20b9567.73 crore.\"\n    else:\n        return \"FINAL_ANSWER: Go-Auto is an auto dealership that Gensol used to buy electric vehicles for BluSmart. There are also indications of financial irregularities involving both companies, Capbridge Ventures, and other entities.\""
+    },
+    "tool_result": {
+      "result": "FINAL_ANSWER: Capbridge routed Rs 10 crore back to Go-Auto using funds from Gensol EV Lease and BluSmart."
+    },
+    "final_answer": null,
+    "tags": [
+      "sandbox"
+    ],
+    "success": true,
+    "metadata": {}
+  }
+]

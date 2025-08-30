@@ -105,11 +105,18 @@ class AgentLoop:
                             return {"status": "done", "result": self.context.final_answer}
                         elif result.startswith("FURTHER_PROCESSING_REQUIRED:"):
                             content = result.split("FURTHER_PROCESSING_REQUIRED:")[1].strip()
+                            # Try to extract the raw text payloads from serialized CallToolResult
+                            try:
+                                text_matches = re.findall(r"text=\'([^\']*)\'|text=\"([^\"]*)\"", content, flags=re.DOTALL)
+                                extracted_texts = [m[0] or m[1] for m in text_matches]
+                                plain = "\n\n".join(extracted_texts) if extracted_texts else content
+                            except Exception:
+                                plain = content
 
                             # Post-result heuristics can adjust forwarded content
                             forwarded_input, _post_results = heuristic_engine.run_post_result(
                                 user_input=self.context.user_input,
-                                interim_result=content,
+                                interim_result=plain,
                                 metadata={"session_id": self.context.session_id, "step": step},
                             )
 

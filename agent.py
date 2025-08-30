@@ -53,6 +53,8 @@ async def main():
                     answer = result["result"]
                     if "FINAL_ANSWER:" in answer:
                         print(f"\n💡 Final Answer: {answer.split('FINAL_ANSWER:')[1].strip()}")
+                        # Persist final answer to memory (for indexing)
+                        context.memory.add_final_answer(answer)
                         break
                     elif "FURTHER_PROCESSING_REQUIRED:" in answer:
                         user_input = answer.split("FURTHER_PROCESSING_REQUIRED:")[1].strip()

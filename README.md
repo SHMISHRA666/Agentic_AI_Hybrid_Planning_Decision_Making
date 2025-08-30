@@ -121,6 +121,27 @@ You’ll see: `🧑 What do you want to solve today? →`.
 5) **Tooling via MCP** (`core/session.py`)
    - Discovers tools from configured servers and routes tool calls over stdio
 
+6) **Conversation history indexing** (`history_index/`)
+   - Builds a lightweight vector index from your past sessions under `memory/`
+   - Retrieves top-N similar Q/A pairs and injects them as few-shot context during planning
+
+Build the index:
+
+```bash
+uv run -m history_index.indexer
+```
+
+Programmatic usage:
+
+```python
+from history_index.indexer import HistoryIndexer
+HistoryIndexer().build()
+
+from history_index.retriever import HistoryRetriever
+retriever = HistoryRetriever()
+shots = retriever.retrieve("Your new query", top_k=3)
+```
+
 ---
 
 ### Available MCP servers (default)
@@ -214,5 +235,3 @@ uv.lock                      # uv lockfile (optional)
 - Modify prompts: edit files in `prompts/` to change planning/perception behavior
 
 ---
-
-
