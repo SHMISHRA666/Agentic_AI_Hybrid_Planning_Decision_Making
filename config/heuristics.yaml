@@ -1,0 +1,29 @@
+enabled: true
+pre_query:
+  - id: invalid_file_detector
+    enabled: true
+  - id: input_validation_system
+    enabled: true
+    min_len: 1
+    max_len: 5000
+  - id: banned_words_filter
+    enabled: true
+    banned: ["password", "apikey", "token"]
+  - id: query_complexity_analyzer
+    enabled: true
+  - id: tool_usage_optimizer
+    enabled: true
+
+post_result:
+  - id: error_pattern_detector
+    enabled: true
+  - id: response_format_validator
+    enabled: true
+  - id: historical_pattern_recognizer
+    enabled: true
+  - id: timeout_manager
+    enabled: true
+  - id: query_intent_matcher
+    enabled: true
+
+

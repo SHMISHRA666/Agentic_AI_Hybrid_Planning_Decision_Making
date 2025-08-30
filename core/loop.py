@@ -2,6 +2,7 @@
 
 import asyncio
 from modules.perception import run_perception
+from modules.heuristics_loader import load_engine_from_config
 from modules.decision import generate_plan
 from modules.action import run_python_sandbox
 from modules.model_manager import ModelManager
@@ -28,6 +29,9 @@ class AgentLoop:
     async def run(self):
         max_steps = self.context.agent_profile.strategy.max_steps
 
+        # Initialize heuristic engine once per run
+        heuristic_engine = load_engine_from_config()
+
         for step in range(max_steps):
             print(f"🔁 Step {step+1}/{max_steps} starting...")
             self.context.step = step
@@ -36,7 +40,13 @@ class AgentLoop:
             while lifelines_left >= 0:
                 # === Perception ===
                 user_input_override = getattr(self.context, "user_input_override", None)
-                perception = await run_perception(context=self.context, user_input=user_input_override or self.context.user_input)
+                # Pre-query heuristics mutate input if needed
+                current_input, _pre_results = heuristic_engine.run_pre_query(
+                    user_input=user_input_override or self.context.user_input,
+                    metadata={"session_id": self.context.session_id, "step": step},
+                )
+
+                perception = await run_perception(context=self.context, user_input=current_input)
 
                 print(f"[perception] {perception}")
 
@@ -53,8 +63,15 @@ class AgentLoop:
                     exploration_mode=self.context.agent_profile.strategy.exploration_mode,
                 )
 
+                # If we are continuing with forwarded content, switch to summarization prompt
+                # to encourage generating a FINAL_ANSWER without further tool calls.
+                if user_input_override:
+                    prompt_path = "prompts/decision_prompt_summarize.txt"
+
+                # Use forwarded input from previous tool result if available
+                current_user_input = user_input_override or self.context.user_input
                 plan = await generate_plan(
-                    user_input=self.context.user_input,
+                    user_input=current_user_input,
                     perception=perception,
                     memory_items=self.context.memory.get_session_items(),
                     tool_descriptions=tool_descriptions,
@@ -88,10 +105,18 @@ class AgentLoop:
                             return {"status": "done", "result": self.context.final_answer}
                         elif result.startswith("FURTHER_PROCESSING_REQUIRED:"):
                             content = result.split("FURTHER_PROCESSING_REQUIRED:")[1].strip()
+
+                            # Post-result heuristics can adjust forwarded content
+                            forwarded_input, _post_results = heuristic_engine.run_post_result(
+                                user_input=self.context.user_input,
+                                interim_result=content,
+                                metadata={"session_id": self.context.session_id, "step": step},
+                            )
+
                             self.context.user_input_override  = (
                                 f"Original user task: {self.context.user_input}\n\n"
                                 f"Your last tool produced this result:\n\n"
-                                f"{content}\n\n"
+                                f"{forwarded_input}\n\n"
                                 f"If this fully answers the task, return:\n"
                                 f"FINAL_ANSWER: your answer\n\n"
                                 f"Otherwise, return the next FUNCTION_CALL."

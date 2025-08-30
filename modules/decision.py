@@ -26,7 +26,7 @@ async def generate_plan(
     tool_descriptions: Optional[str],
     prompt_path: str,
     step_num: int = 1,
-    max_steps: int = 3,
+    max_steps: int = 5,
 ) -> str:
 
     """Generates the full solve() function plan for the agent."""

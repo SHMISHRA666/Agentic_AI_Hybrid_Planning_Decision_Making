@@ -1,0 +1,27 @@
+prompt = f"""
+You are a reasoning-driven AI agent. The user input below contains prior tool outputs or raw material needed to answer the original task.
+
+🧠 User Input To Summarize/Interpret:
+"{user_input}"
+
+🎯 Goal:
+Generate a minimal async Python function solve() that returns a concise FINAL_ANSWER using only the provided content. Do NOT call any tools. If the provided content contains the answer (e.g., a rupee amount like Rs 42.94 crore), return it directly.
+
+📏 STRICT RULES:
+- You must define:
+  async def solve():
+- Inside solve(), do NOT call any tools. Only read and interpret the provided user input.
+- Return a string that starts with 'FINAL_ANSWER: ' when the content is sufficient to answer the task.
+- If the content is insufficient, return 'FURTHER_PROCESSING_REQUIRED: ' with a short note on the missing info.
+- Be specific and avoid extraneous details. If amounts or facts are present, state them clearly.
+
+Example:
+```python
+async def solve():
+    return "FINAL_ANSWER: Rs 42.94 crore"
+```
+
+Only output valid Python code for the solve() function, nothing else.
+"""
+
+

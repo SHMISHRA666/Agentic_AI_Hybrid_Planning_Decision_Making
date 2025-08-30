@@ -9,7 +9,7 @@ strategy:
   planning_mode: conservative   # [conservative, exploratory]
   exploration_mode: parallel    # [parallel, sequential] (only relevant if planning_mode = exploratory)
   memory_fallback_enabled: true # after tool exploration failure
-  max_steps: 3                  # max sequential agent steps
+  max_steps: 5                 # max sequential agent steps
   max_lifelines_per_step: 3      # retries for each step (after primary failure)
 
 memory:
